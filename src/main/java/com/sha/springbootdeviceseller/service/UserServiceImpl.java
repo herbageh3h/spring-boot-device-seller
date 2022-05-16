@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,6 +38,13 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void changeRole(String username, Role newRole) {
-//        userRepository.updateUserRole(username, newRole);
+        System.out.println("username1: " + username);
+        System.out.println("role1: " + newRole);
+        userRepository.updateUserRole(username, newRole);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

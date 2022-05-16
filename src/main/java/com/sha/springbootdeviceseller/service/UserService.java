@@ -3,6 +3,7 @@ package com.sha.springbootdeviceseller.service;
 import com.sha.springbootdeviceseller.model.Role;
 import com.sha.springbootdeviceseller.model.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -11,4 +12,6 @@ public interface UserService {
     Optional<User> findByUsername(String username);
 
     void changeRole(String username, Role newRole);
+
+    List<User> getAllUsers();
 }

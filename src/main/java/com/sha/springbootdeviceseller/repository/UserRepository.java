@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 
-//    @Modifying
-//    @Query("UPDATE users SET role = :role WHERE username = :username")
-//    void updateUserRole(@Param("username") String username, @Param("role") Role role);
+    @Modifying
+    @Query(value = "UPDATE users SET role = :#{#role.name()} WHERE username = :username", nativeQuery = true)
+    void updateUserRole(@Param("username") String username, @Param("role") Role role);
 }
